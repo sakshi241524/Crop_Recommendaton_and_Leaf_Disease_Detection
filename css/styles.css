@@ -1,0 +1,108 @@
+/* General Page Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 10px;
+  background: linear-gradient(to bottom, #aee2cb, #ffffff);
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;   
+}
+.content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 30px;
+}
+
+
+/* Centered Container */
+.container {
+  width: 50%;
+  margin: auto;
+  padding: 50px 0;
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* Name and Title */
+h3 {
+  font-size: 30px;
+  margin-top: 10px;
+  color:darkred;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #474646;
+}
+
+h1 span{
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 10px;
+  color:rgb(3, 116, 91);
+}
+
+/* Description Text */
+.description {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0 20px;
+}
+
+/* Image Credit */
+.image-credit {
+  font-size: 14px;
+  color: gray;
+  font-style: italic;
+}
+
+.credit {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Buttons Section */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Email Button */
+.email-btn {
+  background-color: #00a086;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.email-btn:hover {
+  background-color:white;
+  color: black;
+}
+
+
+.work-btn:hover {
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,246 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+   
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    padding: 15px 20px;
+    background: transparent;
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: none;
+    z-index: 1000;
+    background: #aee2cb;
+}
+.navbar.scrolled {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin: 0 15px;
+    font-weight: bolder;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+.logo h1 {
+    margin: 0;
+    font-size: 30px;
+    padding-left: 40px;
+    color: rgb(64, 64, 64);
+}
+.info{
+    background:linear-gradient(to bottom, #aee2cb, #ffffff);
+}
+  .selected-container {
+    padding-top: 85px;
+    border-radius: 8px;
+    width: 100%;
+  }
+  .selected-container p{
+    font-size: 25px;
+    font-weight: bold;
+    color: darkslategray;
+  }
+  .selected-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+  }
+  .selected-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  .selected-item span {
+    margin-right: 8px;
+  }
+  .selected-item button {
+    background-color:darkred;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+  .crop-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+  }
+  .crop-card.selected {
+    border-color:#8b0000;
+    background-color: #e6f0ff;
+  }
+  .crop-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+  }
+  .save-btn {
+    width: 30%;
+    margin: 20px auto;
+    display: block;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background:darkred;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .save-btn:hover{
+    color: darkred;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+  }
+  .footer {
+    color: black;
+    padding: 40px 0;
+    text-align: center;
+    height: 250px;
+    background: linear-gradient(to top, #aee2cb, #ffffff);
+    
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 1100px;
+    margin: auto;
+}
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+}
+.footer h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: darkred;
+    font-weight: bolder;
+}
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+.footer ul li {
+    margin: 8px 0;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+.footer a:hover {
+    color: darkred;
+}
+.social-icons {
+    margin-top: 15px;
+}
+.social-icons a {
+    color: black;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: darkred;
+}
+.contact-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: white;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.contact-btn:hover {
+    background-color:white;
+    color: darkred;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: black;
+}
+.details {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 20px;
+  padding-top: 100px;
+  background:linear-gradient(to bottom, #aee2cb, #ffffff);
+}
+.crop-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: inline-block;
+  width: 300px;
+  margin-bottom: 20px;
+}
+.crop-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+ul {
+  text-align: left;
+  padding-left: 20px;
+}
+li {
+  margin-bottom: 5px;
+  color: #555;
+}
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #d0f0c0, #a2d5c6);
+    }
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    padding: 15px 20px;
+    background: transparent;
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: none;
+    z-index: 1000;
+    background:#aee2cb;
+}
+.navbar.scrolled {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin: 0 15px;
+    font-weight: bolder;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+.logo h1 {
+    margin: 0;
+    font-size: 30px;
+    padding-left: 40px;
+    color: rgb(64, 64, 64);
+}
+.predict{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* takes full viewport height */
+    background: linear-gradient(to bottom, #aee2cb, #ffffff);
+    padding-top:80px;
+    height:750px;
+}
+
+.container {
+    display: flex;
+    border-radius: 15px;
+    width: 700px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    flex-direction: column;
+
+}
+        .form-section {
+            padding: 40px;
+            width: 80%;
+        }
+        .form-section h2 {
+            margin-bottom: 40px;
+            font-size: 35px;
+            color: darkred;
+            text-align:center;
+
+        }
+        .form-section input[type="number"]{
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .form-section input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-section button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: darkred;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+.form-section button:hover {
+    background-color:white;
+    color: darkred;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+        .form-section a {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+.footer {
+    color: black;
+    padding: 40px 0;
+    text-align: center;
+    height: 250px;
+    background: linear-gradient(to top, #aee2cb, #ffffff);
+    
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 1100px;
+    margin: auto;
+
+
+}
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+}
+.footer h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: darkred;
+    font-weight: bolder;
+}
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+.footer ul li {
+    margin: 8px 0;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+.footer a:hover {
+    color: darkred;
+}
+.social-icons {
+    margin-top: 15px;
+}
+.social-icons a {
+    color: black;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: darkred;
+}
+.contact-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: white;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.contact-btn:hover {
+    background-color:white;
+    color: darkred;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: black;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <h1>SeedScout</h1>
+        </div>
+        <div>
+            <a href="http://localhost/project/firstpage.html">Home</a>
+            <a href="http://localhost/project/aboutus.html">About</a>
+            <a href="http://localhost/project/feedback-form.php">Feedback</a>
+            <a href="http://localhost/project/contact.html">Contact</a>
+        </div>
+</nav>
+<section class="predict">
+    <form action="/predict" method="POST">
+<div class="container">
+    <div class="form-section">
+        <h2>Predict Crop Recommendation</h2>
+        <input type="number" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" required>
+        <input type="number" id="Phosphorus" name="Phosphorus" placeholder="Enter Phosphorus" required>
+        <input type="number" id="Potassium" name="Potassium" placeholder="Enter Potassium" required>
+        <input type="number" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C" required>
+        <input type="number" id="Humidity" name="Humidity" placeholder="Enter Humidity in %" required>
+        <input type="number" id="pH" name="Ph" placeholder="Enter pH value" required>
+        <input type="number" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" required>
+
+        <button onclick="register()">PREDICT</button>
+    </div>
+    </form>
+</section>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>SeedScout</h3>
+            <p>"Grow smarter with expert tips!"</p>
+        </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="http://localhost/project/firstpage.html">Home</a></li>
+                <li><a href="http://localhost/project/aboutus.html">About Us</a></li>
+                <li><a href="http://127.0.0.1:5000">Predict</a></li>
+                <li><a href="http://localhost/project/feedback-form.php">Feedback</a></li>
+                <li><a href="http://localhost/project/contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Partners</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <a href="#" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+    <div class="copyright">&copy; 2024-2025 All Rights Reserved.</div>
+</footer>
+
+
+<script>
+    window.addEventListener('scroll', function() {
+          const navbar = document.getElementById('navbar');
+          if (window.scrollY > 50) {
+              navbar.classList.add('scrolled');
+          } else {
+              navbar.classList.remove('scrolled');
+          }
+      });
+    function register() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const repeatPassword = document.getElementById('repeat-password').value;
+        const terms = document.getElementById('terms').checked;
+
+        if (!name || !email || !password || !repeatPassword) {
+            alert('Please fill all fields.');
+            return;
+        }
+        if (password !== repeatPassword) {
+            alert('Passwords do not match.');
+            return;
+        }
+        if (!terms) {
+            alert('Please agree to the terms of service.');
+            return;
+        }
+
+        alert(`Welcome ${name}, you have registered successfully!`);
+    }
+</script>
+</body>
+</html>

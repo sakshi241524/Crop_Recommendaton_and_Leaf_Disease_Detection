@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+       
+        }
+
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+width: 98%;
+padding: 15px 20px;
+background: transparent;
+transition: background 0.3s ease;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: none;
+z-index: 1000;
+background:#aee2cb;
+}
+.navbar.scrolled {
+background: white;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar a {
+text-decoration: none;
+color: black;
+font-size: 18px;
+margin: 0 15px;
+font-weight: bolder;
+}
+.logo {
+display: flex;
+align-items: center;
+}
+.logo img {
+height: 40px;
+margin-right: 10px;
+}
+.logo h1 {
+margin: 0;
+font-size: 30px;
+padding-left: 40px;
+color: rgb(64, 64, 64);
+}
+/* Section */
+section.detection {
+    width: 98%;
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:5rem;
+    background: linear-gradient(to bottom, #aee2cb, #ffffff);
+}
+
+/* Glass Card */
+.glass-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    
+    max-width: 700px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* Upload Area */
+.upload-area {
+    border: 2px dashed #4caf50;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.upload-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Form & Button */
+input[type="file"] {
+    margin-top: 0.5rem;
+}
+
+.btn-custom {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #388e3c;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #555;
+}
+.footer {
+    color: black;
+    padding: 40px 0;
+    text-align: center;
+    height: 250px;
+    background: linear-gradient(to top, #aee2cb, #ffffff);
+    
+}
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 1100px;
+    margin: auto;
+
+
+}
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+}
+.footer h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: darkred;
+    font-weight: bolder;
+}
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+.footer ul li {
+    margin: 8px 0;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+.footer a:hover {
+    color: darkred;
+}
+.social-icons {
+    margin-top: 15px;
+}
+.social-icons a {
+    color: black;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: darkred;
+}
+.contact-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: white;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.contact-btn:hover {
+    background-color:white;
+    color: darkred;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: black;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <h1>SeedScout</h1>
+        </div>
+        <div>
+            <a href="http://localhost/project/firstpage.html">Home</a>
+            <a href="http://localhost/project/aboutus.html">About</a>
+            <a href="http://localhost/project/feedback-form.php">Feedback</a>
+            <a href="http://localhost/project/contact.html">Contact</a>
+        </div>
+</nav>
+<section class="detection">
+    <div class="container">
+        <div class="glass-container text-center">
+            <h2 class="mb-4">Plant Disease Detection</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="upload-area">
+                    <div class="upload-icon">☁️⬆️</div>
+                    <p>Drag and drop plant leaf image here</p>
+                    <p>or</p>
+                    <input type="file" name="file" accept="image/*" class="form-control mb-2" required>
+                </div>
+                <button type="submit" class="btn btn-custom">Analyze Leaf</button>
+            </form>
+            <p class="note mt-3">Supported formats: JPG, PNG, JPEG<br>Max file size: 5MB</p>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>SeedScout</h3>
+            <p>"Grow smarter with expert tips!"</p>
+        </div>
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="http://localhost/project/firstpage.html">Home</a></li>
+                <li><a href="http://localhost/project/aboutus.html">About Us</a></li>
+                <li><a href="http://127.0.0.1:5000">Predict</a></li>
+                <li><a href="http://localhost/project/feedback-form.php">Feedback</a></li>
+                <li><a href="http://localhost/project/contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Partners</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <a href="#" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+    <div class="copyright">&copy; 2024-2025 All Rights Reserved.</div>
+</footer>
+
+
+<script>
+    window.addEventListener('scroll', function() {
+          const navbar = document.getElementById('navbar');
+          if (window.scrollY > 50) {
+              navbar.classList.add('scrolled');
+          } else {
+              navbar.classList.remove('scrolled');
+          }
+      });
+    function register() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const repeatPassword = document.getElementById('repeat-password').value;
+        const terms = document.getElementById('terms').checked;
+
+        if (!name || !email || !password || !repeatPassword) {
+            alert('Please fill all fields.');
+            return;
+        }
+        if (password !== repeatPassword) {
+            alert('Passwords do not match.');
+            return;
+        }
+        if (!terms) {
+            alert('Please agree to the terms of service.');
+            return;
+        }
+
+        alert(`Welcome ${name}, you have registered successfully!`);
+    }
+</script>
+</body>
+</html>
+
+</body>
+</html>
